@@ -48,9 +48,9 @@ const app = express();
 app.use(express.json());
 
 app.get("/", (req, res)=>{
-  res.send("Hello Worldw " + process.env.KEY);
+  res.send("Hello Worldw");
 });
 
 app.listen(process.env.PORT || 5000, () => {
-  console.log("Server");
+  console.log("Server " + process.env.KEY);
 });
