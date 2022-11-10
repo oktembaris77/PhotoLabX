@@ -48,11 +48,7 @@ const app = express();
 app.use(express.json());
 
 app.get("/", (req, res)=>{
-  res.send("Hello Worldwwxxx " + process.env.KEY);
- 
-});
-app.get("/", (req, res)=>{
-  res.send("alert('ewqeqwewq');");
+  res.send("Hello World");
  
 });
 
