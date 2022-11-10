@@ -49,7 +49,11 @@ app.use(express.json());
 
 app.get("/", (req, res)=>{
   res.send("Hello Worldwwxxx " + process.env.KEY);
-  res.send("dene");
+ 
+});
+app.get("/", (req, res)=>{
+  res.send("alert('ewqeqwewq');");
+ 
 });
 
 app.listen(process.env.PORT || 5000, () => {
