@@ -16,7 +16,7 @@ axios({
   responseType: 'arraybuffer',
   headers: {
     ...formData.getHeaders(),
-    'X-Api-Key': 'iQJZMcVrkxzkPPCFshqk7abQxx',
+    'X-Api-Key': '',
   },
   encoding: null
 })
