@@ -17,7 +17,19 @@ const fs = require('fs');
 const path = require('path');
 const inputPath = 'cat.jpg';
 const formData = new FormData();
-formData.append('size', 'auto');
+
+
+////////////////////////////////////////////////////////////
+///
+
+const express = require("express");
+const app = express();
+app.use(express.json());
+
+app.get("/", (req, res)=>{
+  res.send("Hello World");
+
+  formData.append('size', 'auto');
 formData.append('image_file', fs.createReadStream(inputPath), path.basename(inputPath));
 
 axios({
@@ -39,16 +51,6 @@ axios({
     return console.error('Request failed:', error);
 });
 
-
-////////////////////////////////////////////////////////////
-///
-
-const express = require("express");
-const app = express();
-app.use(express.json());
-
-app.get("/", (req, res)=>{
-  res.send("Hello World");
  
 });
 
