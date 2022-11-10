@@ -19,7 +19,7 @@ const inputPath = 'cat.jpg';
 const formData = new FormData();
 formData.append('size', 'auto');
 formData.append('image_file', fs.createReadStream(inputPath), path.basename(inputPath));
-alert("aa: " + process.env.KEY);
+
 axios({
   method: 'post',
   url: 'https://api.remove.bg/v1.0/removebg',
@@ -48,7 +48,7 @@ const app = express();
 app.use(express.json());
 
 app.get("/", (req, res)=>{
-  res.send("Hello Worldw");
+  res.send("Hello Worldw " + process.env.KEY);
 });
 
 app.listen(process.env.PORT || 5000, () => {
