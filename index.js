@@ -55,13 +55,16 @@ axios({
 });
 
 io.on("connection", (socket) => {
+  res.send("x1");
   console.log(socket.id + " New connection.");
 
   socket.on("disconnect", () =>{
+    res.send("x2");
       console.log(socket.id  + " disconnected");
   });
 
   socket.on("new message", msg => {
+    res.send("x3");
       console.log("new message on the server", msg);
       io.emit("incomming", msg);
   });
