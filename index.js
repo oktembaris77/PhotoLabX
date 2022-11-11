@@ -54,6 +54,19 @@ axios({
  
 });
 
+io.on("connection", (socket) => {
+  console.log(socket.id + " New connection.");
+
+  socket.on("disconnect", () =>{
+      console.log(socket.id  + " disconnected");
+  });
+
+  socket.on("new message", msg => {
+      console.log("new message on the server", msg);
+      io.emit("incomming", msg);
+  });
+});
+
 app.listen(process.env.PORT || 5000, () => {
   console.log("Server");
 });
