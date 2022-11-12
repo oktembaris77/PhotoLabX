@@ -40,5 +40,5 @@ io.on('connection', (socket) => {
 
 });
 
-http.use('/', router);
+app.use('/', router);
 http.listen(process.env.PORT, () => console.log('listening on http://photolabx.herokuapp.com:' + process.env.PORT));
