@@ -24,7 +24,7 @@ const io = require('socket.io')(http);
 
 
 app.get("/", function(req, res){
-  res.send("Deneme 123");
+  res.render("app/index.html");
 });
 
 io.on('connection', (socket) => {
