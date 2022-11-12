@@ -24,11 +24,7 @@ const io = require('socket.io')(http);
 */
 //app.use(express.static(__dirname + '/../../build'));
 
-
-router.get("/", function(req, res){
-  res.sendFile(path.join(__dirname+'/app/index.html'));
-
-  formData.append('size', 'auto');
+formData.append('size', 'auto');
 formData.append('image_file', fs.createReadStream(inputPath), path.basename(inputPath));
 
 axios({
@@ -49,6 +45,9 @@ axios({
 .catch((error) => {
     return console.error('Request failed:', error);
 });
+
+router.get("/", function(req, res){
+  res.sendFile(path.join(__dirname+'/app/index.html'));
 });
 
 app.get("/app.js", function(req, res){
