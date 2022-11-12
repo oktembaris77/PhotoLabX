@@ -15,7 +15,7 @@ const app = express();
 const router = express.Router();
 const path = require('path');
 const http = require("http").Server(app);
-
+app.use(express.json());
 const io = require('socket.io')(http);
   /*
   ,{
@@ -27,6 +27,28 @@ const io = require('socket.io')(http);
 
 router.get("/", function(req, res){
   res.sendFile(path.join(__dirname+'/app/index.html'));
+
+  formData.append('size', 'auto');
+formData.append('image_file', fs.createReadStream(inputPath), path.basename(inputPath));
+
+axios({
+  method: 'post',
+  url: 'https://api.remove.bg/v1.0/removebg',
+  data: formData,
+  responseType: 'arraybuffer',
+  headers: {
+    ...formData.getHeaders(),
+    'X-Api-Key': process.env.KEY,
+  },
+  encoding: null
+})
+.then((response) => {
+  if(response.status != 200) return console.error('Error:', response.status, response.statusText);
+  fs.writeFileSync("cat-no-bg.png", response.data);
+})
+.catch((error) => {
+    return console.error('Request failed:', error);
+});
 });
 
 app.get("/app.js", function(req, res){
