@@ -24,7 +24,7 @@ const io = require('socket.io')(http);
 
 
 app.get("/", function(req, res){
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(path.join(__dirname+'/index.html'));
 });
 
 io.on('connection', (socket) => {
