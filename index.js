@@ -15,8 +15,15 @@ const app = express();
 const router = express.Router();
 const path = require('path');
 const http = require("http").Server(app);
-app.use(express.json());
 const io = require('socket.io')(http);
+
+app.use(express.json());
+const axios = require('axios');
+const FormData = require('form-data');
+const fs = require('fs');
+const path = require('path');
+const inputPath = 'cat.jpg';
+const formData = new FormData();
   /*
   ,{
   cors: {origin: "*"}
