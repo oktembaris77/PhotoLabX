@@ -29,6 +29,10 @@ router.get("/", function(req, res){
   res.sendFile(path.join(__dirname+'/app/index.html'));
 });
 
+router.get("/app.js", function(req, res){
+  res.render(path.join(__dirname+'/app/app.js'));
+});
+
 io.on('connection', (socket) => {
   console.log('a user connected');
 
