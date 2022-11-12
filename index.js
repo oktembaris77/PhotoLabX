@@ -29,7 +29,7 @@ router.get("/", function(req, res){
   res.sendFile(path.join(__dirname+'/app/index.html'));
 });
 
-app.get("/app", function(req, res){
+app.get("/app.js", function(req, res){
   res.sendFile(path.join(__dirname+'/app/app.js'));
 });
 
