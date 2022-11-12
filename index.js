@@ -26,7 +26,7 @@ const io = require('socket.io')(http);
 
 
 router.get("/", function(req, res){
-  res.sendFile(path.join(__dirname+'/index.html'));
+  res.sendFile(path.join(__dirname+'/app/index.html'));
 });
 
 io.on('connection', (socket) => {
