@@ -11,7 +11,7 @@ document.querySelector('button').onclick = () =>{
 */
 
 
-const socket = io('ws://localhost:' + process.env.PORT);
+const socket = io('ws://photolabx.herokuapp.com:' + process.env.PORT);
 
 socket.on('message', text => {
     const el = document.createElement('li');

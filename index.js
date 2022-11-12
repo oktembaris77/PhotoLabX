@@ -27,4 +27,4 @@ io.on('connection', (socket) => {
 
 });
 
-http.listen(8080, () => console.log('listening on http://localhost:' + process.env.PORT));
+http.listen(process.env.PORT, () => console.log('listening on http://photolabx.herokuapp.com:' + process.env.PORT));
