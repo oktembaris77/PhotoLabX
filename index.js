@@ -21,6 +21,12 @@ const io = require('socket.io')(http);
 });
 */
 //app.use(express.static(__dirname + '/../../build'));
+
+
+app.get("/", function(req, res){
+  res.render("Deneme 123");
+});
+
 io.on('connection', (socket) => {
   console.log('a user connected');
 
