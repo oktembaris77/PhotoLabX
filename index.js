@@ -12,6 +12,8 @@ io.on('connection', (socket) => {
 
 const express = require('express');
 const app = express();
+const router = express.Router();
+const path = require('path');
 const http = require("http").Server(app);
 
 const io = require('socket.io')(http);
@@ -23,7 +25,7 @@ const io = require('socket.io')(http);
 //app.use(express.static(__dirname + '/../../build'));
 
 
-app.get("/", function(req, res){
+router.get("/", function(req, res){
   res.sendFile(path.join(__dirname+'/index.html'));
 });
 
@@ -38,4 +40,5 @@ io.on('connection', (socket) => {
 
 });
 
+http.use('/', router);
 http.listen(process.env.PORT, () => console.log('listening on http://photolabx.herokuapp.com:' + process.env.PORT));
