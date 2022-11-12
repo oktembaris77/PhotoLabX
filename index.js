@@ -10,12 +10,17 @@ io.on('connection', (socket) => {
 });*/
 
 
-const http = require('http').createServer();
+const express = require('express');
+const app = express();
+const http = require("http").Server(app);
 
-const io = require('socket.io')(http,{
+const io = require('socket.io')(http);
+  /*
+  ,{
   cors: {origin: "*"}
 });
-
+*/
+//app.use(express.static(__dirname + '/../../build'));
 io.on('connection', (socket) => {
   console.log('a user connected');
 
